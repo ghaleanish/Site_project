@@ -23,6 +23,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\MediaController;
 
 Route::get('/', function () {return redirect('sign-in');})->middleware('guest');
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
@@ -31,12 +32,22 @@ Route::post('sign-up', [RegisterController::class, 'store'])->middleware('guest'
 Route::get('sign-in', [SessionsController::class, 'create'])->middleware('guest')->name('login');
 Route::post('sign-in', [SessionsController::class, 'store'])->middleware('guest');
 Route::post('verify', [SessionsController::class, 'show'])->middleware('guest');
-Route::post('reset-password', [SessionsController::class, 'update'])->middleware('guest')->name('password.update');           
+Route::post('reset-password', [SessionsController::class, 'update'])->middleware('guest')->name('password.update'); 
+//category          
 Route::get('/category',[CategoryController::class,'getAddCategory'])->name('getAddCategory');
 Route::post('/postAddCategory',[CategoryController::class,'postAddCategory'])->name('postAddCategory');
-Route::get('/managecategory',[CategoryController::class,'getManageCategory'])->name('getManageCategory');
+Route::get('/manage/category',[CategoryController::class,'getManageCategory'])->name('getManageCategory');
+Route::get('/manage/edit/category/{Category}',[CategoryController::class,'getEditCategory'])->name('getEditCategory');
+Route::get('/manage/category/delete/{Category}',[CategoryController::class,'getDeleteCategory'])->name('getDeleteCategory');
+//product
 Route::get('/product',[ProductController::class,'getAddProduct'])->name('getAddProduct');
 Route::post('/postAddProduct',[ProductController::class,'postAddProduct'])->name('postAddProduct');
+Route::get('/manage/product',[ProductController::class,'getManageProduct'])->name('getManageProduct');
+Route::get('/manage/delete/product/{product}',[ProductController::class,'getDeleteProduct'])->name('getDeleteProduct');
+Route::get('/manage/edit/product/{product}',[ProductController::class,'getEditProduct'])->name('getEditProduct');
+//media
+Route::get('/media',[MediaController::class,'getAddMedia'])->name('getAddMedia');
+Route::post('/postAddMedia',[MediaController::class,'postAddMedia'])->name('postAddMedia');
 Route::get('verify', function () {
 	return view('sessions.password.verify');
 })->middleware('guest')->name('verify'); 

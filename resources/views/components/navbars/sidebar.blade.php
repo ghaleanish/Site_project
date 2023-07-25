@@ -57,7 +57,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white {{ $activePage == 'ManageCategory' ? ' active bg-gradient-primary' : '' }} "
+                <a class="nav-link text-white {{ $activePage == 'Manage_Category' ? ' active bg-gradient-primary' : '' }} "
                     href="{{ route('getManageCategory') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">table_view</i>
@@ -72,6 +72,24 @@
                         <i class="material-icons opacity-10">table_view</i>
                     </div>
                     <span class="nav-link-text ms-1">Product</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ $activePage == 'ManageProduct' ? ' active bg-gradient-primary' : '' }} "
+                    href="{{ route('getManageProduct') }}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">table_view</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Manage Product</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ $activePage == 'Media' ? ' active bg-gradient-primary' : '' }} "
+                    href="{{ route('getAddMedia') }}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">table_view</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Media</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -150,16 +168,6 @@
         </ul>
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
-        <div class="mx-3">
-            <a class="btn bg-gradient-primary w-100" href="https://www.creative-tim.com/product/material-dashboard-laravel" target="_blank">Free Download</a>
-        </div>
-        <div class="mx-3">
-            <a class="btn bg-gradient-primary w-100" href="../../documentation/getting-started/installation.html" target="_blank">View documentation</a>
-        </div>
-        <div class="mx-3">
-            <a class="btn bg-gradient-primary w-100"
-                href="https://www.creative-tim.com/product/material-dashboard-pro-laravel" target="_blank" type="button">Upgrade
-                to pro</a>
-        </div>
+        
     </div>
 </aside>
